@@ -44,7 +44,8 @@ const Home = () => {
 
       const blob = await response.blob();
       const url = URL.createObjectURL(blob);
-      setOptimizedUrl({ url, size: blob.size });
+      const actualFormat = response.headers.get('Content-Type').split('/')[1] || format;
+      setOptimizedUrl({ url, size: blob.size, format: actualFormat });
     } catch (err) {
       setError(err.message || 'Something went wrong');
     } finally {
@@ -132,8 +133,8 @@ const Home = () => {
                 className="max-w-full max-h-96 rounded-lg border border-gray-200 shadow"
               />
               <a
-                href={optimizedUrl}
-                download={`optimized.${format}`}
+                href={optimizedUrl.url}
+                download={`optimized.${optimizedUrl.format}`}
                 className="mt-4 inline-block bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2 rounded-lg font-medium transition"
               >
                 Download Optimized Image
