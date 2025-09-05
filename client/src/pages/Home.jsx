@@ -53,7 +53,7 @@ const Home = () => {
     }
   };
 
-  // 🌈 Welcome screen
+  //  Welcome screen
   if (!showUploader) {
     return (
       <div
@@ -79,14 +79,14 @@ const Home = () => {
     );
   }
 
-  // 📦 Main interface
+  //  Main interface
   return (
     <div className="relative p-8 max-w-6xl mx-auto bg-gray-50">
 
       {/*  Main layout */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-6">
         
-        {/* 🖼 Upload Section */}
+        {/* Upload Section */}
         <div className="md:col-span-1 space-y-6">
           <div className="bg-white p-6 rounded-2xl shadow">
             <ImageUpload image={image} onImageSelect={setImage} />
@@ -97,7 +97,7 @@ const Home = () => {
             )}
           </div>
           
-          {/* 📂 Format dropdown */}
+          {/*  Format dropdown */}
           <div className="bg-white p-6 rounded-2xl shadow">
             <FormatSelector format={format} setFormat={setFormat} />
           </div>
@@ -120,7 +120,7 @@ const Home = () => {
           </button>
         </div>
 
-        {/* ✅ Preview Section */}
+        {/*  Preview Section */}
         <div className="md:col-span-2 bg-white p-6 rounded-2xl shadow flex flex-col items-center justify-center min-h-[400px]">
           {optimizedUrl ? (
             <>
